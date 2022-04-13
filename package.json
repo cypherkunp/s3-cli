@@ -20,6 +20,7 @@
     "@oclif/core": "^1",
     "@oclif/plugin-help": "^5",
     "@oclif/plugin-plugins": "^2.0.1",
+    "aws-sdk": "^2.1114.0",
     "chalk": "^4.1.2"
   },
   "devDependencies": {
@@ -49,13 +50,14 @@
     ],
     "topicSeparator": " ",
     "topics": {
-      "hello": {
+      "list": {
         "description": "Say hello to the world and others"
       }
     }
   },
   "scripts": {
     "build": "shx rm -rf dist && tsc -b",
+    "ex": "yarn build && ./bin/run",
     "lint": "eslint . --ext .ts --config .eslintrc",
     "postpack": "shx rm -f oclif.manifest.json",
     "posttest": "yarn lint",
