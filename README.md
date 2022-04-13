@@ -1,108 +1,247 @@
-# node-typescript-boilerplate
+oclif-hello-world
+=================
 
-[![Sponsor][sponsor-badge]][sponsor]
-[![TypeScript version][ts-badge]][typescript-4-6]
-[![Node.js version][nodejs-badge]][nodejs]
-[![APLv2][license-badge]][license]
-[![Build Status - GitHub Actions][gha-badge]][gha-ci]
+oclif example Hello World CLI
 
-👩🏻‍💻 Developer Ready: A comprehensive template. Works out of the box for most [Node.js][nodejs] projects.
+[![oclif](https://img.shields.io/badge/cli-oclif-brightgreen.svg)](https://oclif.io)
+[![Version](https://img.shields.io/npm/v/oclif-hello-world.svg)](https://npmjs.org/package/oclif-hello-world)
+[![CircleCI](https://circleci.com/gh/oclif/hello-world/tree/main.svg?style=shield)](https://circleci.com/gh/oclif/hello-world/tree/main)
+[![Downloads/week](https://img.shields.io/npm/dw/oclif-hello-world.svg)](https://npmjs.org/package/oclif-hello-world)
+[![License](https://img.shields.io/npm/l/oclif-hello-world.svg)](https://github.com/oclif/hello-world/blob/main/package.json)
 
-🏃🏽 Instant Value: All basic tools included and configured:
+<!-- toc -->
+* [Usage](#usage)
+* [Commands](#commands)
+<!-- tocstop -->
+# Usage
+<!-- usage -->
+```sh-session
+$ npm install -g oclif-hello-world
+$ oex COMMAND
+running command...
+$ oex (--version)
+oclif-hello-world/0.0.0 darwin-x64 node-v16.13.1
+$ oex --help [COMMAND]
+USAGE
+  $ oex COMMAND
+...
+```
+<!-- usagestop -->
+# Commands
+<!-- commands -->
+* [`oex hello PERSON`](#oex-hello-person)
+* [`oex hello world`](#oex-hello-world)
+* [`oex help [COMMAND]`](#oex-help-command)
+* [`oex plugins`](#oex-plugins)
+* [`oex plugins:inspect PLUGIN...`](#oex-pluginsinspect-plugin)
+* [`oex plugins:install PLUGIN...`](#oex-pluginsinstall-plugin)
+* [`oex plugins:link PLUGIN`](#oex-pluginslink-plugin)
+* [`oex plugins:uninstall PLUGIN...`](#oex-pluginsuninstall-plugin)
+* [`oex plugins update`](#oex-plugins-update)
 
-- [TypeScript][typescript] [4.6][typescript-4-6]
-- [ESM][esm]
-- [ESLint][eslint] with some initial rules recommendation
-- [Jest][jest] for fast unit testing and code coverage
-- Type definitions for Node.js and Jest
-- [Prettier][prettier] to enforce consistent code style
-- NPM [scripts](#available-scripts) for common operations
-- Simple example of TypeScript code and unit test
-- .editorconfig for consistent file format
-- Reproducible environments thanks to [Volta][volta]
-- Example configuration for [GitHub Actions][gh-actions]
+## `oex hello PERSON`
 
-🤲 Free as in speech: available under the APLv2 license.
+Say hello
 
-## Getting Started
+```
+USAGE
+  $ oex hello [PERSON] -f <value>
 
-This project is intended to be used with the latest Active LTS release of [Node.js][nodejs].
+ARGUMENTS
+  PERSON  Person to say hello to
 
-### Use as a repository template
+FLAGS
+  -f, --from=<value>  (required) Whom is saying hello
 
-To start, just click the **[Use template][repo-template-action]** link (or the green button). Start adding your code in the `src` and unit tests in the `__tests__` directories.
+DESCRIPTION
+  Say hello
 
-### Clone repository
-
-To clone the repository, use the following commands:
-
-```sh
-git clone https://github.com/jsynowiec/node-typescript-boilerplate
-cd node-typescript-boilerplate
-npm install
+EXAMPLES
+  $ oex hello friend --from oclif
+  hello friend from oclif! (./src/commands/hello/index.ts)
 ```
 
-### Download latest release
+_See code: [dist/commands/hello/index.ts](https://github.com/oclif/hello-world/blob/v0.0.0/dist/commands/hello/index.ts)_
 
-Download and unzip the current **main** branch or one of the tags:
+## `oex hello world`
 
-```sh
-wget https://github.com/jsynowiec/node-typescript-boilerplate/archive/main.zip -O node-typescript-boilerplate.zip
-unzip node-typescript-boilerplate.zip && rm node-typescript-boilerplate.zip
+Say hello world
+
+```
+USAGE
+  $ oex hello world
+
+DESCRIPTION
+  Say hello world
+
+EXAMPLES
+  $ oex hello world
+  hello world! (./src/commands/hello/world.ts)
 ```
 
-## Available Scripts
+## `oex help [COMMAND]`
 
-- `clean` - remove coverage data, Jest cache and transpiled files,
-- `prebuild` - lint source files and tests before building,
-- `build` - transpile TypeScript to ES6,
-- `build:watch` - interactive watch mode to automatically transpile source files,
-- `lint` - lint source files and tests,
-- `test` - run tests,
-- `test:watch` - interactive watch mode to automatically re-run tests
+Display help for oex.
 
-## Additional Informations
+```
+USAGE
+  $ oex help [COMMAND] [-n]
 
-### Why include Volta
+ARGUMENTS
+  COMMAND  Command to show help for.
 
-[Volta][volta]’s toolchain always keeps track of where you are, it makes sure the tools you use always respect the settings of the project you’re working on. This means you don’t have to worry about changing the state of your installed software when switching between projects. For example, it's [used by engineers at LinkedIn][volta-tomdale] to standardize tools and have reproducible development environments.
+FLAGS
+  -n, --nested-commands  Include all nested commands in the output.
 
-I recommend to [install][volta-getting-started] Volta and use it to manage your project's toolchain.
+DESCRIPTION
+  Display help for oex.
+```
 
-### ES Modules
+_See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v5.1.10/src/commands/help.ts)_
 
-This template uses native [ESM][esm]. If your project requires CommonJS, you will have to [convert to ESM][sindresorhus-esm] or use the [dynamic import()][dynamic-import] function.
+## `oex plugins`
 
-Please do not open issues for questions regarding CommonJS or ESM on this repo.
+List installed plugins.
 
-## Backers & Sponsors
+```
+USAGE
+  $ oex plugins [--core]
 
-Support this project by becoming a [sponsor][sponsor].
+FLAGS
+  --core  Show core plugins.
 
-## License
+DESCRIPTION
+  List installed plugins.
 
-Licensed under the APLv2. See the [LICENSE](https://github.com/jsynowiec/node-typescript-boilerplate/blob/main/LICENSE) file for details.
+EXAMPLES
+  $ oex plugins
+```
 
-[ts-badge]: https://img.shields.io/badge/TypeScript-4.6-blue.svg
-[nodejs-badge]: https://img.shields.io/badge/Node.js->=%2016.13-blue.svg
-[nodejs]: https://nodejs.org/dist/latest-v14.x/docs/api/
-[gha-badge]: https://github.com/jsynowiec/node-typescript-boilerplate/actions/workflows/nodejs.yml/badge.svg
-[gha-ci]: https://github.com/jsynowiec/node-typescript-boilerplate/actions/workflows/nodejs.yml
-[typescript]: https://www.typescriptlang.org/
-[typescript-4-6]: https://devblogs.microsoft.com/typescript/announcing-typescript-4-6/
-[license-badge]: https://img.shields.io/badge/license-APLv2-blue.svg
-[license]: https://github.com/jsynowiec/node-typescript-boilerplate/blob/main/LICENSE
-[sponsor-badge]: https://img.shields.io/badge/♥-Sponsor-fc0fb5.svg
-[sponsor]: https://github.com/sponsors/jsynowiec
-[jest]: https://facebook.github.io/jest/
-[eslint]: https://github.com/eslint/eslint
-[wiki-js-tests]: https://github.com/jsynowiec/node-typescript-boilerplate/wiki/Unit-tests-in-plain-JavaScript
-[prettier]: https://prettier.io
-[volta]: https://volta.sh
-[volta-getting-started]: https://docs.volta.sh/guide/getting-started
-[volta-tomdale]: https://twitter.com/tomdale/status/1162017336699838467?s=20
-[gh-actions]: https://github.com/features/actions
-[repo-template-action]: https://github.com/jsynowiec/node-typescript-boilerplate/generate
-[esm]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules
-[sindresorhus-esm]: https://gist.github.com/sindresorhus/a39789f98801d908bbc7ff3ecc99d99c
-[dynamic-import]: https://v8.dev/features/dynamic-import
+_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v2.0.11/src/commands/plugins/index.ts)_
+
+## `oex plugins:inspect PLUGIN...`
+
+Displays installation properties of a plugin.
+
+```
+USAGE
+  $ oex plugins:inspect PLUGIN...
+
+ARGUMENTS
+  PLUGIN  [default: .] Plugin to inspect.
+
+FLAGS
+  -h, --help     Show CLI help.
+  -v, --verbose
+
+DESCRIPTION
+  Displays installation properties of a plugin.
+
+EXAMPLES
+  $ oex plugins:inspect myplugin
+```
+
+## `oex plugins:install PLUGIN...`
+
+Installs a plugin into the CLI.
+
+```
+USAGE
+  $ oex plugins:install PLUGIN...
+
+ARGUMENTS
+  PLUGIN  Plugin to install.
+
+FLAGS
+  -f, --force    Run yarn install with force flag.
+  -h, --help     Show CLI help.
+  -v, --verbose
+
+DESCRIPTION
+  Installs a plugin into the CLI.
+
+  Can be installed from npm or a git url.
+
+  Installation of a user-installed plugin will override a core plugin.
+
+  e.g. If you have a core plugin that has a 'hello' command, installing a user-installed plugin with a 'hello' command
+  will override the core plugin implementation. This is useful if a user needs to update core plugin functionality in
+  the CLI without the need to patch and update the whole CLI.
+
+ALIASES
+  $ oex plugins add
+
+EXAMPLES
+  $ oex plugins:install myplugin 
+
+  $ oex plugins:install https://github.com/someuser/someplugin
+
+  $ oex plugins:install someuser/someplugin
+```
+
+## `oex plugins:link PLUGIN`
+
+Links a plugin into the CLI for development.
+
+```
+USAGE
+  $ oex plugins:link PLUGIN
+
+ARGUMENTS
+  PATH  [default: .] path to plugin
+
+FLAGS
+  -h, --help     Show CLI help.
+  -v, --verbose
+
+DESCRIPTION
+  Links a plugin into the CLI for development.
+
+  Installation of a linked plugin will override a user-installed or core plugin.
+
+  e.g. If you have a user-installed or core plugin that has a 'hello' command, installing a linked plugin with a 'hello'
+  command will override the user-installed or core plugin implementation. This is useful for development work.
+
+EXAMPLES
+  $ oex plugins:link myplugin
+```
+
+## `oex plugins:uninstall PLUGIN...`
+
+Removes a plugin from the CLI.
+
+```
+USAGE
+  $ oex plugins:uninstall PLUGIN...
+
+ARGUMENTS
+  PLUGIN  plugin to uninstall
+
+FLAGS
+  -h, --help     Show CLI help.
+  -v, --verbose
+
+DESCRIPTION
+  Removes a plugin from the CLI.
+
+ALIASES
+  $ oex plugins unlink
+  $ oex plugins remove
+```
+
+## `oex plugins update`
+
+Update installed plugins.
+
+```
+USAGE
+  $ oex plugins update [-h] [-v]
+
+FLAGS
+  -h, --help     Show CLI help.
+  -v, --verbose
+
+DESCRIPTION
+  Update installed plugins.
+```
+<!-- commandsstop -->
